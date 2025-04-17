@@ -5,9 +5,7 @@ const RecipeContainer = ({ recipes }) => {
    return (
     <div className="recipe-container"> 
             {
-                recipes.map((recipes, index) => (
-                    <Recipe key={index} props={recipes}/>
-                ))
+                recipes.map((recipes, index) => (<Recipe key={index} props={recipes}/>))
             }
     </div> 
    )
