@@ -1,16 +1,19 @@
 // MUI import for styling
-
+import { FormControlLabel, Checkbox, Card } from '@mui/material';
 // Presentational Component
 
 const Recipe = ({props}) => {
     
     return (
-        <div className="recipe"> 
+        <Card sx={{ width: 750 }} className="recipe">
             {/* Data read in for the Recipe */}
             <h2>{props.name}</h2>
             <h3>Ingredients:</h3>
             <ul>
-                {props.ingredients.map((ingredient, index) => (<li key={index}>{ingredient}</li>))}
+                {props.ingredients.map((ingredient, index) => (
+                    <li key={index}>
+                        <FormControlLabel control={<Checkbox />} label={ingredient}/>
+                    </li>))}
             </ul>
             <h3>Instructions:</h3>
             <ol>
@@ -20,11 +23,13 @@ const Recipe = ({props}) => {
                 {/* Data read in for Optional Glaze Recipe */}
                 {props.optionalGlaze && (
                 <div className="optional-glaze">
-                    <h2>Optional Glaze</h2>
-                    <h2>{props.optionalGlaze.name}</h2>
+                    <h2>Optional: {props.optionalGlaze.name}</h2>
                     <h3>Ingredients:</h3>
                     <ul>
-                        {props.optionalGlaze.ingredients.map((ingredient, index) => (<li key={index}>{ingredient}</li>))}
+                        {props.optionalGlaze.ingredients.map((ingredient, index) => (
+                            <li key={index}>
+                                <FormControlLabel control={<Checkbox />} label={ingredient} />
+                            </li>))}
                     </ul>
                     <h3>Instructions:</h3>
                     <ol>
@@ -32,7 +37,7 @@ const Recipe = ({props}) => {
                     </ol>
                 </div>)}
             </ol>
-        </div>
+        </Card>
     );
 }
 

@@ -1,3 +1,11 @@
 html {
   padding: 3rem;
 }
+
+ul > li {
+  list-style-type: none;
+}
+
+.recipe {
+  padding: 1rem;
+}
